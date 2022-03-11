@@ -1,0 +1,44 @@
+<div class="block">
+
+  <div class="balk">
+    <span></span>
+    <span>Name</span>
+    <span></span>
+  </div>
+
+  <div *ngFor="let rule of rules" class="rules" [class.delete]="clickedId && clickedId.includes(rule.id)">
+    <div (transitionend)="transitionEnd($event, rule.id)" class="balk rule"
+         [class.moveUp]="moveUp.includes(rule.id)">
+      <span><icon-open-new-tab (click)="ruleModelOpen = true" class="clickable"></icon-open-new-tab></span>
+      <span>{{rule.name}}</span>
+      <div class="edit">
+        <icon-edit class="clickable"></icon-edit>
+        <icon-delete (click)="onDelete(rule)" class="clickable"
+                     [delete]="clickedId && clickedId.includes(rule.id)"></icon-delete>
+      </div>
+      <app-icon-expand-less *ngIf="expandRules.includes(rule.name)" (click)="removeExpand(rule.name)"
+                            class="clickable"></app-icon-expand-less>
+      <app-icon-expand-more *ngIf="!expandRules.includes(rule.name)" (click)="expandRules.push(rule.name)"
+                            class="clickable"></app-icon-expand-more>
+    </div>
+    <div *ngIf="expandRules.includes(rule.name)" class="expandRules">
+      <div class="balk">
+        <span>Price range min</span>
+        <span>Price range max</span>
+        <span>Fixed charge</span>
+        <span>Percentage</span>
+      </div>
+      <div *ngFor="let properties of rule.ruleProperties" class="balk properties">
+        <span>{{properties.priceRangeMin}}</span>
+        <span *ngIf="properties.priceRangeCeiling === undefined">&infin;</span>
+        <span *ngIf="properties.priceRangeCeiling !== undefined">{{properties.priceRangeCeiling}}</span>
+        <span>{{properties.commissionFixedCharge.amount | currency: properties.commissionFixedCharge.currency}}</span>
+        <span>{{properties.commissionPercentage}}</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<puik-modal [isOpen]="ruleModelOpen" (puikClose)="ruleModelOpen = null">
+  <app-nodes [nodes]="nodes" [ruleModelOpen]="ruleModelOpen"></app-nodes>
+</puik-modal>

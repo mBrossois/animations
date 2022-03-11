@@ -1,0 +1,46 @@
+<h1 *ngIf="ruleModelOpen">Nodes connected to {{nodes.ruleName}}</h1>
+
+<div class="block">
+  <div class="balk">
+    <span>Name <span class="id">(id)</span></span>
+    <span>Brand</span>
+    <span>Path</span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <div class="bar" (click)="openAddNode = true" [class.clickable]="!openAddNode" [class.showAddNode]="openAddNode" (mouseenter)="hoverAdd = true" (mouseleave)="hoverAdd = false">
+    <div class="balk add"  >
+      <span></span>
+      <icon-add [fill]="(hoverAdd || openAddNode) ? 'white' : 'black'"></icon-add>
+      <span>Add new node</span>
+      <span></span>
+    </div>
+    <div class="background switch">
+      <div class="balk add"></div>
+      <div class="add-node">
+        <span>Node</span> <br>
+        <input value="Zaagbok">
+      </div>
+      <div class="balk add">
+        <span></span>
+        <span></span>
+        <span>Add attribute</span>
+        <span></span>
+        <span></span></div>
+    </div>
+
+
+  </div>
+
+  <div *ngFor="let node of nodes.nodes" class="balk nodes">
+    <span [class.closed]="!expandRules.includes(node.name)">{{node.name}} <span class="id">({{node.id}})</span></span>
+    <span [class.closed]="!expandRules.includes(node.name)">{{node.brand}}</span>
+    <span class="path" [class.closed]="!expandRules.includes(node.name)">{{node.depth}}</span>
+    <icon-delete class="clickable"></icon-delete>
+    <app-icon-expand-less *ngIf="expandRules.includes(node.name)" (click)="removeExpand(node.name)"
+                          class="clickable"></app-icon-expand-less>
+    <app-icon-expand-more *ngIf="!expandRules.includes(node.name)" (click)="expandRules.push(node.name)"
+                          class="clickable"></app-icon-expand-more>
+  </div>
+</div>

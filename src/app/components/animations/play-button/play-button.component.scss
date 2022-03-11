@@ -1,0 +1,45 @@
+:host {
+
+  svg {
+    overflow: visible;
+    height: 18px;
+    width: 18px;
+  }
+
+  .button {
+    display: inline;
+
+    transform-origin: 12px 13px;
+
+    opacity: 0;
+
+  }
+
+  .play {
+    transition: transform 200ms ease-in-out, opacity 1ms ease-in-out 199ms;
+  }
+
+  .stop {
+    transition: transform 200ms ease-in-out, opacity 1ms ease-in-out 1ms;
+  }
+
+  .play.copy {
+    transform: rotate(180deg) translate(- 10 px, - 6 px) scale(1);
+  }
+
+  .play.display {
+    transition: transform 200ms ease-in-out, opacity 1ms ease-in-out 1ms;
+    opacity: 1;
+    transform: rotate(-360deg);
+  }
+
+  .play.expand.display {
+    transform: rotate(-360deg) translate(-4px, -3px) scale(0.1);
+  }
+
+  .stop.display {
+    transition: transform 200ms ease-in-out, opacity 199ms ease-in-out 1ms;
+    opacity: 1;
+    transform: rotate(360deg);
+  }
+}

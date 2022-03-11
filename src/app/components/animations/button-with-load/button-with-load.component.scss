@@ -1,0 +1,115 @@
+.btn {
+  background-color: rgb(43, 45, 47);
+  color: #71DFBE;
+  font-weight: bold;
+  border: none;
+  border-radius: 0.25em;
+  height: 3em;
+  width: 8em;
+  cursor: pointer;
+}
+
+.btn.animate {
+  color: #71dfbe00;
+  background-color: transparent;
+  cursor: default;
+  height: 0;
+  width: 16em;
+  transition: all 350ms ease-in-out;
+}
+
+.btn.animate::before {
+  content: '';
+  position: absolute;
+  background-color: rgb(43, 45, 47);
+  border-radius: 0.25em;
+  inset: 0;
+  transform-origin: center;
+  animation: increase-height 1500ms ease-in-out 350ms forwards;
+}
+
+.btn.animate::after {
+  content: '';
+  position: absolute;
+  background-color: #71DFBE;
+  border-radius: 0.25em;
+  inset: 0;
+  width: 0;
+  height: 2em;
+  animation: loading 1500ms ease-in-out 900ms forwards;
+}
+
+.checkmark-icon {
+  position: absolute;
+  left: 5.9em;
+  top: -0.2em;
+  transform: scale(1.8);
+}
+
+.checkmark-path {
+  stroke-dasharray: 48;
+  stroke-dashoffset: 48;
+  stroke: white;
+  stroke-width: 2.1px;
+  fill: none;
+  animation: draw-svg 350ms linear 2500ms forwards;
+}
+
+@keyframes increase-height {
+  0% {
+    height: 1.5em;
+    width: 16em;
+    transform: translate(0, 0);
+  }
+  13%, 90% {
+    height: 2em;
+    width: 15em;
+    transform: translate(0.5em, -0.25em);
+    opacity: 1;
+  }
+  91%, 100% {
+    opacity: 0;
+  }
+}
+
+@keyframes loading {
+  0% {
+    width: 0;
+    height: 2em;
+    transform: translate(8em, -0.25em);
+    border-radius: 0;
+  }
+  50%, 60% {
+    width: 15em;
+    height: 2em;
+    transform: translate(0.5em, -0.25em);
+    border-radius: 0;
+  }
+  75%, 78% {
+    width: 4em;
+    height: 6em;
+    transform: translate(6em, -2.5em);
+    border-radius: 100%;
+  }
+  100% {
+       width: 5em;
+       height: 5em;
+       transform: translate(5.5em, -2em);
+       border-radius: 100%;
+     }
+}
+
+@keyframes draw-svg {
+  0% {
+    fill: none;
+    stroke-dashoffset: 48;
+  }
+  99% {
+    fill: none;
+    stroke-dashoffset: 0§;
+    }
+  100% {
+    fill: white;
+    stroke-dashoffset: 0;
+  }
+}

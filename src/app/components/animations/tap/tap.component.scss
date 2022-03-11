@@ -1,0 +1,85 @@
+svg {
+  height: 96px;
+  width: 96px;
+  overflow: visible;
+
+  .tab {
+
+    .rotary-knob {
+
+      .middle-part {
+        transition: transform ease-in-out 1s, r ease-in-out 1s;
+        transform-origin: 57px 0;
+      }
+      .left-knob-grow, .left-knob-reduce, .right-knob-reduce, .right-knob-grow {
+        transition: transform ease-in-out 1s, r ease-in-out 1s, opacity 1ms 500ms;;
+        transform-origin: 57px 0;
+      }
+      .left-knob-grow .right-knob-reduce {
+        opacity: 1;
+        r: 6;
+      }
+      .left-knob-reduce {
+        opacity: 0;
+        r: 7;
+      }
+
+      .right-knob-grow {
+        opacity: 0;
+        r: 5;
+      }
+    }
+    .water {
+      transition: height ease-in 200ms 700ms, y ease-in 1s;
+      width: 10.8px;
+      height: 0;
+      y: 573.1;
+    }
+
+  }
+}
+
+svg.play {
+  .water {
+    transition: height ease-in 200ms 700ms, y ease-in 1s;
+    width: 10.8px;
+    height: 0;
+    y: 573.1;
+  }
+}
+
+svg.play > .tab > .rotary-knob > .middle-part {
+  transform: rotateY(180deg);
+}
+
+svg.play > .tab > .rotary-knob > .left-knob-grow {
+  transform: translateX(32px);
+  r: 7;
+  opacity: 0;
+}
+
+svg.play > .tab > .rotary-knob > .left-knob-reduce {
+  transform: translateX(32px);
+  r:6;
+  opacity: 1;
+}
+
+svg.play > .tab > .rotary-knob > .right-knob-reduce {
+  transform: translateX(-32px);
+  r: 5;
+  opacity: 0;
+}
+
+svg.play > .tab > .rotary-knob > .right-knob-grow {
+  transform: translateX(-32px);
+  r: 6;
+  opacity: 1;
+}
+
+svg.play > .tab > .water {
+  transition: height ease-in 1s 1s, y 1ms;
+  height: 500px;
+  y: 73.5;
+}
+
+

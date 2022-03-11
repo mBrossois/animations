@@ -1,0 +1,40 @@
+:host {
+  .box {
+    width: 150px;
+    height: 150px;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
+  svg {
+    height: 96px;
+    width: 96px;
+    overflow: visible;
+
+    .screen {
+      transition: opacity 200ms ease-in-out 300ms;
+    }
+
+    .show {
+      opacity: 1;
+    }
+
+    .hide {
+      opacity: 0;
+    }
+
+    .hand {
+      transition: transform 200ms ease-in-out 500ms;
+      fill: #FDD0AB;
+      transform: translate(7px, 100px);
+
+    }
+
+    .hand.move {
+      transition: transform 200ms ease-in-out;
+      transform: translate(7px, 60px);
+    }
+  }
+}

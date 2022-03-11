@@ -1,0 +1,4 @@
+<h1>Animations</h1>
+<div class="buttonMenu">
+  <button *ngFor="let routes of routing" (click)="onClick(routes['path'])" [class.active]="active === routes['path']">{{routes['path']}}</button>
+</div>

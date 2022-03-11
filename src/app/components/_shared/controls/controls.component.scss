@@ -1,0 +1,36 @@
+:host {
+  background-color: #0000A4;
+  display: flex;
+  justify-content: space-evenly;
+  z-index: 100;
+
+  .controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+    .svg {
+      transition: transform;
+      transform: scale(2);
+      cursor: pointer;
+    }
+
+    .svg:hover {
+      transform: scale(2.2);
+    }
+  }
+
+  .controls.zoom {
+    width: 20%;
+  }
+
+  .controls.movie {
+    width: 30%;
+  }
+
+  .controls.fill {
+    width: 20%;
+  }
+
+
+}

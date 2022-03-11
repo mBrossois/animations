@@ -1,0 +1,11 @@
+<div class="zoom controls">
+  <app-zoom-out (click)="zoomClicked(-0.25)" class="svg"></app-zoom-out>
+  <app-zoom-in (click)="zoomClicked(0.25)" class="svg"></app-zoom-in>
+</div>
+<div class="movie controls">
+  <app-previous-button (click)="statusClicked('previous')" class="svg"></app-previous-button>
+  <app-play-button (click)="statusClicked('play')" [play]="status" [fill]="'white'" class="svg"></app-play-button>
+  <app-next-button (click)="statusClicked('next')" class="svg"></app-next-button>
+</div>
+
+<div class="fill controls"></div>

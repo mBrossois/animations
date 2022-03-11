@@ -1,0 +1,52 @@
+:host {
+  svg{
+    height: 96px;
+    width: 96px;
+
+    margin-left: 10px;
+    margin-top: 10px;
+    overflow: visible;
+
+    #leftWheel{
+      transform-origin: 35px 86px;
+    }
+
+    #rightWheel{
+      transform-origin: 83px 86px;
+
+      #rightInnerWheel {
+        transform: translateY(-1px);
+      }
+    }
+  }
+
+  svg:hover > .wheel {
+    animation: ease-in-out wheelRotation 2500ms infinite;
+  }
+
+  svg:hover > .mainCart {
+    animation: ease-in-out cartMovement 2500ms infinite;
+  }
+
+
+}
+
+@keyframes wheelRotation {
+
+  0% { transform: translate(0, 0) rotate(0deg); }
+  30% { transform: translate(10px, 0) rotate(180deg); }
+  60% { transform: translate(0, 0) rotate(360deg); }
+  80% { transform: translate(10px, 0) rotate(180deg); }
+  100% { transform: translate(0, 0) rotate(0deg); }
+
+}
+
+@keyframes cartMovement {
+
+  0% { transform: translate(0px, 0px); }
+  30% { transform: translate(10px, 1px); }
+  60% { transform: translate(0px, 0px); }
+  80% { transform: translate(10px, 1px); }
+  100% { transform: translate(0px, 0px) }
+
+}

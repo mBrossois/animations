@@ -1,0 +1,19 @@
+:host {
+  svg {
+    height: 24px;
+    width: 24px;
+
+    path {
+      transition: fill 100ms ease-in-out;
+    }
+
+    path.white {
+      fill: white;
+    }
+
+    path.black {
+      fill: black;
+    }
+  }
+
+}

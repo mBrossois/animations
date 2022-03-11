@@ -1,0 +1,8 @@
+<!--<svg [attr.fill]="fill" >-->
+<!--  <path d="M8 5v14l11-7z" class="play button" [class.display]="play === 'stop'"/>-->
+<!--  <path d="M6 6h12v12H6z" class="stop button" [class.display]="play === 'play'"/>-->
+<svg [attr.fill]="fill">
+  <path d="M6,7.4h12v12H6V7.4z" class="stop button" [class.display]="play === 'play'"/>
+  <path d="M6,7.4v11.9l9.4-6L6,7.4z" class="play button" [class.display]="play === 'stop'"/>
+  <polygon points="18,7.4 18,19.4 6,19.4 15.4,13.4 6,7.4 " class="play button expand" [class.display]="play === 'stop'"/>
+</svg>

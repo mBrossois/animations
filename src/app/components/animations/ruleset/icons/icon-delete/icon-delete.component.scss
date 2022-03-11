@@ -1,0 +1,19 @@
+:host {
+  svg {
+    height: 24px;
+    width: 24px;
+    overflow: visible;
+    fill: white;
+
+    .trashcan.open{
+      fill: #1EADFF;
+    }
+
+    .lid.open {
+      transition: transform 200ms ease-in-out;
+      transform: translateY(-2px);
+
+    }
+
+  }
+}

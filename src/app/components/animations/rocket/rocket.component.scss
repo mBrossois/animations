@@ -1,0 +1,68 @@
+:host {
+  svg {
+    height: 96px;
+    width: 96px;
+    overflow: visible;
+
+    .rocket-animation {
+
+      .smoke.middle.expand {
+        transition: transform 300ms ease-in 1300ms, opacity 1ms 1s;
+        transform: translateY( 45px) scaley(0);
+        opacity: 1;
+      }
+
+      .smoke.middle.flying {
+        transition: transform 1s ease-in-out, opacity 1ms 1s;
+        opacity: 0;
+      }
+
+      .smoke.sides {
+        transition: transform 300ms ease-in-out 800ms, opacity 100ms 1300ms;
+        transform: scaleX(0);
+        transform-origin: 45px 0;
+        opacity: 1;
+      }
+
+      .rocket-ship {
+        transition: transform 1s ease-in-out;
+
+        .astronaut {
+          transition: transform 500ms ease-in-out 1s;
+          transform: translateY(10px);
+        }
+
+      }
+    }
+  }
+
+  .rocket-animation.launch {
+    .smoke.middle.expand {
+      transition: transform 300ms ease-in 600ms, opacity 1ms 1s !important;
+      transform: translateY(0px) scaleY(1) !important;
+      opacity: 0 !important;
+    }
+
+    .smoke.middle.flying {
+      transition: transform 1s ease-in-out 1s, opacity 1ms 1s !important;
+      transform: translateY(-200px) !important;
+      opacity: 1 !important;
+    }
+
+    .smoke.sides {
+      transform: scaleX(1) !important;
+      opacity: 0 !important;
+    }
+
+    .rocket-ship {
+      transition: transform 1s ease-in-out 1s !important;
+      transform: translateY(-200px) !important;
+
+      .astronaut {
+        transition: transform 500ms ease-in-out !important;
+        transform: translateY(0) !important;
+      }
+    }
+  }
+
+}
